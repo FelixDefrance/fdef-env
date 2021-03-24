@@ -1,0 +1,28 @@
+echo_reverse() {
+  echo -ne $blackonwhite
+  echo -ne "$*"
+  echo -e $default
+}
+
+echo_italic() {
+  echo -ne $italic
+  echo -ne "$*"
+  echo -e $default
+}
+
+echo_bold() {
+  echo -ne $bold
+  echo -ne "$*"
+  echo -e $default
+}
+
+echo_underline() {
+  echo -ne $underline
+  echo -ne "$*"
+  echo -e $default
+}
+
+netinfo(){
+    echo_bold "Internal IPv4 address: "; ip a | grep 'inet\ ' | grep -v 127 | awk -F " " '{print $NF, $2}'
+    echo_bold "External IPv4 address: "; wget -q -O - checkip.dyndns.org|sed -e 's/.*Current IP Address: //' | sed 's/<\/body><\/html>//'
+}

@@ -1,0 +1,39 @@
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+
+[push]
+    default = simple
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[fetch]
+    prune = true
+
+[alias]
+    ci = commit
+    st = status
+    br = branch
+    co = checkout
+
+[diff]
+    tool = vimdiff
+    word-diff = true
+
+[init]
+	defaultBranch = master
+
+[user]
+    name = Felix Defrance
+    email = github@d2france.fr

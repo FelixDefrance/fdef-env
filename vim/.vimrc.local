@@ -1,0 +1,44 @@
+set softtabstop=4       " Define 4 SPACE for TAB
+set shiftwidth=4
+set textwidth=80        " Automatic Wrap 80 Column
+
+" Get a colorscheme that is nice with transparent background
+colorscheme torte
+hi Normal guibg=NONE ctermbg=NONE
+
+" Enable 80 character wide warning
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\(\%81v.\+\|\s\+$\|\t\)/
+
+set enc=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf8,prc
+set guifont=Monaco:h11
+set guifontwide=NSimsun:h12
+
+set nocompatible
+
+let g:grammalecte_cli_py='~/.config/gramalecte-cli/grammalecte-cli.py'
+
+" Syntax highlight for Grammalecte. You need to define g:grammalecte_cli_py in
+" your .vimrc.local
+"hi GrammalecteGrammarError  guisp=blue gui=undercurl guifg=NONE guibg=NONE ctermfg=blue ctermbg=none term=underline cterm=none
+hi GrammalecteGrammarError  guisp=yellow gui=undercurl guifg=NONE guibg=NONE ctermfg=yellow ctermbg=none term=underline cterm=none
+hi GrammalecteSpellingError guisp=red gui=undercurl guifg=NONE guibg=NONE ctermfg=red ctermbg=none term=underline cterm=none
+
+" Automatic spellcheck on rst files
+autocmd BufNewFile,BufRead *.rst setlocal spell spelllang=fr
+autocmd BufNewFile,BufRead *.md setlocal spell spelllang=fr
+
+
+" Source options & plugins if exist
+let localOptions = expand("~/.vim/plugin/10_options.vim")
+if filereadable(localOptions)
+  execute 'source '.localOptions
+endif
+
+" Include plugins
+let localPlugins = expand("~/.vim/plugin/00_plugins.vim")
+if filereadable(localPlugins)
+    execute 'source '.localPlugins
+endif

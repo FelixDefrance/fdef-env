@@ -1,0 +1,9 @@
+# use system conf
+$include /etc/inputrc
+
+# Pimp my shell!
+set colored-stats on
+
+# Use history search base on the begining input
+"\e[A":history-search-backward
+"\e[B":history-search-forward
