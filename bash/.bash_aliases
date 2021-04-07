@@ -15,15 +15,15 @@ alias ip='ip -c'
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-#
+# Add basic aliases
 alias man-fr='man -L fr_FR'
 alias o='xdg-open'
 alias grep='grep --color=always'
 alias fgrep='fgrep --color=always'
 alias egrep='egrep --color=always'
 alias less='less -RXSFm'
-alias gitg='git log --all --decorate --graph  --oneline'
 alias ncdu='ncdu --color dark'
+alias tailf='tail -f'
 
 alias psc='ps xawf -eo pid,user,cgroup,args'
 
