@@ -25,14 +25,16 @@
     ci = commit
     st = status
     br = branch
+    brl = branch --list --all
     co = checkout
+    loggraph = log --all --decorate --graph --oneline
 
 [diff]
     tool = vimdiff
     word-diff = true
 
 [init]
-	defaultBranch = master
+    defaultBranch = master
 
 [user]
     name = Felix Defrance
