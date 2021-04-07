@@ -7,8 +7,9 @@ colorscheme torte
 hi Normal guibg=NONE ctermbg=NONE
 
 " Enable 80 character wide warning
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\(\%81v.\+\|\s\+$\|\t\)/
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\(\%81v.\+\|\s\+$\|\t\)/
+set cc=79
 
 set enc=utf-8
 set fileencoding=utf-8
