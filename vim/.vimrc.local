@@ -28,8 +28,8 @@ hi GrammalecteGrammarError  guisp=yellow gui=undercurl guifg=NONE guibg=NONE cte
 hi GrammalecteSpellingError guisp=red gui=undercurl guifg=NONE guibg=NONE ctermfg=red ctermbg=none term=underline cterm=none
 
 " Automatic spellcheck on rst files
-autocmd BufNewFile,BufRead *.rst setlocal spell spelllang=fr
-autocmd BufNewFile,BufRead *.md setlocal spell spelllang=fr
+"autocmd BufNewFile,BufRead *.rst setlocal spell spelllang=fr
+"autocmd BufNewFile,BufRead *.md setlocal spell spelllang=fr
 
 
 " Source options & plugins if exist
