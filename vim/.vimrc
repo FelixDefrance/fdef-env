@@ -7,10 +7,10 @@ set expandtab           " Convert TAB in SPACE
 "set backup              " Keep a backup file
 "set backupdir=~/.vimbackupfiles
 
-
-" Use evening theme instead of default theme when vimdiff is called.
+" Use apprentice theme instead of default theme when vimdiff is called.
 if &diff
-    colorscheme evening
+    colorscheme apprentice
+    highlight Normal ctermbg=NONE
 endif
 
 " Set the mouse mode to 'r'

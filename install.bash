@@ -18,6 +18,7 @@ files["git/.gitignore"]="${HOME}/.gitignore"
 files["htop/htoprc"]="${HOME}/.config/htop/htoprc"
 files["tmux/.tmux.conf"]="${HOME}/.tmux.conf"
 files["vim/.vimrc"]="${HOME}/.vimrc"
+files["vim/apprentice.vim"]="${HOME}/.vim/colors/apprentice.vim"
 
 if [ "X$(hostname)" = "Xstellar" ]; then
     files["vim/.vimrc.local"]="${HOME}/.vimrc.local"
