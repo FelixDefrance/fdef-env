@@ -27,13 +27,32 @@ netinfo(){
     echo_bold "External IPv4 address: "; wget -q -O - checkip.dyndns.org|sed -e 's/.*Current IP Address: //' | sed 's/<\/body><\/html>//'
 }
 
-CT_start(){
+# --- pop contener with systemd-nspawn
+pop_ct(){
     local CT_chroot=$1
     sudo iptables -t nat -I POSTROUTING -s 192.168.10.0/24 -j MASQUERADE
     sudo echo 1 >  /proc/sys/net/ipv4/ip_forward
     sudo systemd-nspawn -bD /var/lib/machines/$CT_chroot --network-bridge=br0
 }
 
-CT_list(){
+# list ct
+pop_ct_list(){
     sudo ls /var/lib/machines
+}
+
+# --- pop vm with a templated qemu-kvm img
+pop_vm () {
+        vmName="${1}"
+        vmTemplate="$(cat ~/.vm-template)"
+        virsh -c qemu:///system snapshot-revert ${vmTemplate} template
+        virt-clone --connect qemu:///system --original ${vmTemplate} --name vm-${vmName} --auto-clone --check disk_size=off
+        sudo virt-sysprep --connect qemu:///system --enable customize --hostname vm-${vmName} -d vm-${vmName}
+        #virsh -c qemu:///system start --console vm-${vmName}
+        virsh -c qemu:///system start vm-${vmName}
+}
+
+# --- colorized logs with tail
+
+tailc () {
+    tail $@ | ccze -A
 }
