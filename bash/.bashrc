@@ -17,6 +17,7 @@ if [ -f /etc/bash_completion ]; then source /etc/bash_completion; fi
 
 # Source bash custom functions
 if [ -f $HOME/.bash_custom_func ]; then source $HOME/.bash_custom_func; fi
+if [ -f $HOME/.bash_custom_func.local ]; then source $HOME/.bash_custom_func.local; fi
 
 # Customize the prompt
 myUID=$(id -u)
