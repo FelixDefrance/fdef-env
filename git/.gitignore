@@ -7,3 +7,5 @@
 *.orig
 *note*
 *notes*
+.vscode
+.project

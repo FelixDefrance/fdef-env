@@ -1,6 +1,6 @@
 # Beware! This file is rewritten by htop when settings are changed in the interface.
 # The parser is also very primitive, and not human-friendly.
-htop_version=3.2.0
+htop_version=3.2.1
 config_reader_min_version=3
 fields=0 48 17 18 38 39 40 2 46 47 49 1
 hide_kernel_threads=1
@@ -34,8 +34,8 @@ hide_function_bar=0
 header_layout=two_50_50
 column_meters_0=AllCPUs Uptime Systemd
 column_meter_modes_0=1 2 2
-column_meters_1=CPU Swap Memory Zram NetworkIO DiskIO Tasks LoadAverage Battery
-column_meter_modes_1=1 1 1 1 2 2 2 2 2
+column_meters_1=CPU Swap Memory Zram NetworkIO DiskIO Tasks LoadAverage Battery PressureStallMemoryFull PressureStallCPUSome PressureStallIOSome PressureStallIOFull PressureStallMemorySome
+column_meter_modes_1=1 1 1 1 2 2 2 2 2 2 2 2 2 2
 tree_view=0
 sort_key=46
 tree_sort_key=0
