@@ -23,6 +23,9 @@ files["vim/apprentice.vim"]="${HOME}/.vim/colors/apprentice.vim"
 if [ "X$(hostname)" = "Xstellar" ]; then
     files["vim/.vimrc.local"]="${HOME}/.vimrc.local"
     files["gnupg/gpg.conf"]="${HOME}/.gnupg/gpg.conf"
+    files["zsh/zshrc"]="${HOME}/.zshrc"
+    files["zsh/fdef.zsh"]="${HOME}/.oh-my-zsh/custom/fdef.zsh"
+    files["zsh/p10k.zsh"]="${HOME}/.p10k.zsh"
 fi
 
 echo "All files will be backuped to ${HOME}/fdef-env.$(date +%F).backup"
