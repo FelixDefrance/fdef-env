@@ -1,3 +1,5 @@
+# Source profile local definitions
+if [ -f $HOME/.profile.local ]; then source $HOME/.profile.local; fi
 # Source bash definitions
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
