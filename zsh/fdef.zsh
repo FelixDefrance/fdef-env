@@ -33,19 +33,3 @@ alias tree='tree -Csu'
                                                            
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-netinfo(){
-    echo "Internal IPv4 address: "; ip a | grep 'inet\ ' | grep -v 127 | awk -F " " '{print $NF, $2}'
-    echo "External IPv4 address: "; wget -q -O - checkip.dyndns.org|sed -e 's/.*Current IP Address: //' | sed 's/<\/body><\/html>//'
-}
-
-CT_start(){
-    local CT_chroot=$1
-    sudo iptables -t nat -I POSTROUTING -s 192.168.10.0/24 -j MASQUERADE
-    sudo echo 1 >  /proc/sys/net/ipv4/ip_forward
-    sudo systemd-nspawn -bD /var/lib/machines/$CT_chroot --network-bridge=br0
-}
-
-CT_list(){
-    sudo ls /var/lib/machines
-}
