@@ -40,25 +40,6 @@ pop_ct_list(){
     sudo ls /var/lib/machines
 }
 
-# --- pop vm with a templated qemu-kvm img
-pop_vm () {
-        vmName="${1}"
-        if [ -v $vmName ]
-        then 
-                echo "Hey, what's my name bro!" 
-        else
-                export LIBVIRT_DEFAULT_URI="qemu:///system"
-                vmTemplate="$(cat ~/.vm-template)"
-                virsh snapshot-revert ${vmTemplate} template
-                virt-clone --original ${vmTemplate} --name vm-${vmName} --auto-clone --check disk_size=off
-                sudo virt-sysprep --connect qemu:///system --enable customize --hostname vm-${vmName} -d vm-${vmName}
-                #virsh -c qemu:///system start --console vm-${vmName}
-                virsh start vm-${vmName}
-                sleep 5
-                virsh net-dhcp-leases default | grep vm-${vmName}
-        fi
-}
-
 # --- colorized logs with tail
 
 tailc () {
