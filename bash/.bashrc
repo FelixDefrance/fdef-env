@@ -10,14 +10,12 @@
 
 # Source alias definitions
 if [ -f $HOME/.bash_aliases ]; then source $HOME/.bash_aliases; fi
-if [ -f $HOME/.bash_aliases.local ]; then source $HOME/.bash_aliases.local; fi
 
 # Source bash completion
 if [ -f /etc/bash_completion ]; then source /etc/bash_completion; fi
 
 # Source bash custom functions
 if [ -f $HOME/.bash_custom_func ]; then source $HOME/.bash_custom_func; fi
-if [ -f $HOME/.bash_custom_func.local ]; then source $HOME/.bash_custom_func.local; fi
 
 # Customize the prompt
 myUID=$(id -u)
@@ -117,3 +115,9 @@ then
     fi
   fi
 fi
+
+# Source local overrides 
+
+if [ -f $HOME/.bashrc.local ]; then source $HOME/.bashrc.local; fi
+if [ -f $HOME/.bash_aliases.local ]; then source $HOME/.bash_aliases.local; fi
+if [ -f $HOME/.bash_custom_func.local ]; then source $HOME/.bash_custom_func.local; fi
