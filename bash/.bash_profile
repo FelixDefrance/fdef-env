@@ -13,3 +13,4 @@ export EDITOR=vim
 # not needed since firefox version 121
 # if [ "X$XDG_SESSION_TYPE" = "Xwayland" ]; then export MOZ_ENABLE_WAYLAND=1; fi
 
+export QT_QPA_PLATFORM=wayland
